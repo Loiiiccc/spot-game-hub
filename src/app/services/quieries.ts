@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import { Game } from "../models/game";
+import { GameList } from "../models/gameList";
 
 export function useGames(){
-    return useSWR<Game[]>("/games");
+    return useSWR<GameList>("/games");
 }

@@ -13,12 +13,16 @@ import Image from "next/image";
 
 export default function Games() {
   const { data } = useGames();
+
+  console.log(data)
+  if(!data) return "Loading...";
+
   return (
     <div>
-      <p>Games : </p>
-      {data?.map((game) => (
-        <li key={game.id}>
-          <Card>
+      <p>Games : {data.count}</p>
+      {data?.results.map((game) => (
+        
+          <Card key={game.id}>
             <CardHeader>
               <CardTitle>{game.name}</CardTitle>
               <CardDescription></CardDescription>
@@ -33,10 +37,10 @@ export default function Games() {
               />
             </CardContent>
             <CardFooter>
-              <p>{game.platforms}</p>
+              
             </CardFooter>
           </Card>
-        </li>
+        
       ))}
       
     </div>
