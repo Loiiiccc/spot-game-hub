@@ -10,25 +10,42 @@ import {
   navigationMenuTriggerStyle,
   NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
-import Link from "next/link";
-import GenreList from "@/components/genderList";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
-export default function Home() {
+import Link from "next/link";
+import { UserButton } from "@clerk/nextjs";
+import Games from "@/components/Games";
+
+export default function Page() {
   return (
+
     <div>
-      <div></div>
+      <h1>Dashboard</h1>
+      <Games/>
+      ---
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Games</NavigationMenuTrigger>
-            <Link href="/genders" legacyBehavior passHref>
+            <Link href="/games" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              <GenreList />
+                Games
               </NavigationMenuLink>
             </Link>
+            <NavigationMenuContent>
+              <NavigationMenuLink>Link</NavigationMenuLink>
+            </NavigationMenuContent>
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
+
+      <br />
+
     </div>
   );
 }
